@@ -10,4 +10,16 @@ public class ApiResponse {
 
     @SerializedName("Response")
     private String response;
+
+    public Movie[] getSearch() {
+        return search;
+    }
+
+    public String getTotalResults() {
+        return totalResults;
+    }
+
+    public String getResponse() {
+        return response;
+    }
 }
