@@ -19,7 +19,7 @@ public class HelloApplication {
 
     public static void main(String[] args) {
 //        launch();
-        ApiResponse response = ApiUtility.getDataFromFile("apiResponse.json");
+        ApiResponse response = ApiUtility.getDataFromAPI("Spider man");
         System.out.println(response);
     }
 }
