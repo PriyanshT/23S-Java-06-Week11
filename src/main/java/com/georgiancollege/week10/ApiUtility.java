@@ -4,6 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
 import java.io.FileReader;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class ApiUtility {
     /*
@@ -25,5 +31,27 @@ public class ApiUtility {
         }
 
         return response;
+    }
+
+    /*
+    This method will do a http request like we did in browser
+    and get the object data from the file stored from api
+     */
+    public static ApiResponse getDataFromAPI(String searchName){
+        searchName = searchName.replace(" ", "%20");
+        String url = "https://www.omdbapi.com/?apikey=8127fd11&s=" + searchName;
+
+        HttpClient httpClient = HttpClient.newHttpClient();
+        HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(url)).build();
+
+        try {
+            HttpResponse<Path> response = httpClient.send(httpRequest, HttpResponse
+                    .BodyHandlers
+                    .ofFile(Paths.get("javaApiFetched.json")));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return ApiUtility.getDataFromFile("javaApiFetched.json");
     }
 }
