@@ -2,11 +2,16 @@ package com.georgiancollege.week10;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class SearchController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SearchController implements Initializable {
 
     @FXML
     private ImageView imageView;
@@ -17,9 +22,23 @@ public class SearchController {
     @FXML
     private TextField searchTextField;
 
-    @FXML
-    void showMovies(ActionEvent event) {
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        listView.getSelectionModel().selectedItemProperty().addListener(
+                (observableValue, oldMovie, newMovie) -> {
+                    try {
+                        imageView.setImage(new Image(newMovie.getPoster()));
+                    } catch (Exception e){
+                        imageView.setImage(new Image("https://www.pngplay.com/wp-content/uploads/12/Bugs-Bunny-No-PNG-Photo-Image.png"));
+                    }
+                });
     }
 
+    @FXML
+    void showMovies(ActionEvent event) {
+        String searchText = searchTextField.getText();
+        ApiResponse apiResponse = ApiUtility.getDataFromApiQuick(searchText);
+
+        listView.getItems().addAll(apiResponse.getSearch());
+    }
 }
