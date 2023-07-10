@@ -36,6 +36,7 @@ public class SearchController implements Initializable {
 
     @FXML
     void showMovies(ActionEvent event) {
+        listView.getItems().clear();
         String searchText = searchTextField.getText();
         ApiResponse apiResponse = ApiUtility.getDataFromApiQuick(searchText);
 
