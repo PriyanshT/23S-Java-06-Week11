@@ -1,6 +1,7 @@
 package com.georgiancollege.week11.Utilities;
 
 import com.georgiancollege.week11.Models.ApiResponse;
+import com.georgiancollege.week11.Models.MovieDetails;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
@@ -70,6 +71,26 @@ public class ApiUtility {
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             Gson gson = new Gson();
             return gson.fromJson(response.body(), ApiResponse.class);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    /*
+    This method will create objects without storing it to the hard drive
+     */
+    public static MovieDetails getMovieDetailsFromApi(String imdbID){
+        String url = "https://www.omdbapi.com/?apikey=8127fd11&i=" + imdbID;
+
+        HttpClient httpClient = HttpClient.newHttpClient();
+        HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(url)).build();
+
+        try {
+            HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            Gson gson = new Gson();
+            return gson.fromJson(response.body(), MovieDetails.class);
         } catch (Exception e){
             e.printStackTrace();
         }

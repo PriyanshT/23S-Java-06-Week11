@@ -1,5 +1,7 @@
 package com.georgiancollege.week11.Controllers;
 
+import com.georgiancollege.week11.Models.MovieDetails;
+import com.georgiancollege.week11.Utilities.ApiUtility;
 import com.georgiancollege.week11.Utilities.SceneChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,6 +45,8 @@ public class MovieDetailsController {
 
     public void displayMovieDetails(String movieID){
         System.out.println("Movie ID from the Scene Change (From Second Scene): " + movieID);
+        MovieDetails movieDetails = ApiUtility.getMovieDetailsFromApi(movieID);
+        System.out.println(movieDetails);
     }
 
     @FXML
