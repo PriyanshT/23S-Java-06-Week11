@@ -1,5 +1,9 @@
-package com.georgiancollege.week11;
+package com.georgiancollege.week11.Controllers;
 
+import com.georgiancollege.week11.Models.ApiResponse;
+import com.georgiancollege.week11.Models.Movie;
+import com.georgiancollege.week11.Utilities.ApiUtility;
+import com.georgiancollege.week11.Utilities.SceneChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -62,8 +67,10 @@ public class SearchController implements Initializable {
     }
 
     @FXML
-    void getDetailsButton_onClick(ActionEvent event) {
+    void getDetailsButton_onClick(ActionEvent event) throws IOException {
         String selectedMovieID = listView.getSelectionModel().getSelectedItem().getImdbID();
         System.out.println("Movie ID from the List View (From First Scene): " + selectedMovieID);
+
+        SceneChanger.changeScene(event, "movie-details-view.fxml", selectedMovieID);
     }
 }

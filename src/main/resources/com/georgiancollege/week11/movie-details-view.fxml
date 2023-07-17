@@ -14,11 +14,11 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.georgiancollege.week11.MovieDetailsController">
+<AnchorPane prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.georgiancollege.week11.Controllers.MovieDetailsController">
    <children>
       <BorderPane layoutX="140.0" layoutY="59.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Label alignment="CENTER" prefHeight="38.0" prefWidth="464.0" text="Movie Title" textAlignment="CENTER" BorderPane.alignment="CENTER">
+            <Label fx:id="titleLabel" alignment="CENTER" prefHeight="38.0" prefWidth="464.0" text="Movie Title" textAlignment="CENTER" BorderPane.alignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
@@ -40,17 +40,17 @@
               </rowConstraints>
                <children>
                   <Label text="Year" />
-                  <Label text="Label" GridPane.columnIndex="1" />
+                  <Label fx:id="yearLabel" text="Label" GridPane.columnIndex="1" />
                   <Label text="Date Released" GridPane.rowIndex="1" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="dateReleasedLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Runtime" GridPane.rowIndex="2" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="runtimeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Genre" GridPane.rowIndex="3" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label fx:id="genreLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Director" GridPane.rowIndex="4" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label fx:id="directorLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label text="Writer" GridPane.rowIndex="5" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label fx:id="writerLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
                <BorderPane.margin>
                   <Insets left="10.0" />
@@ -58,7 +58,7 @@
             </GridPane>
          </left>
          <bottom>
-            <Button mnemonicParsing="false" text="Go Back" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#goBack_onClick" text="Go Back" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="10.0" />
                </BorderPane.margin>
@@ -68,9 +68,9 @@
             <VBox alignment="CENTER" prefHeight="326.0" prefWidth="274.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
                   <Label text="Actor/Actresess" />
-                  <ListView prefHeight="140.0" prefWidth="186.0" />
+                  <ListView fx:id="actorListView" prefHeight="140.0" prefWidth="186.0" />
                   <Label text="Ratings" />
-                  <ListView prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="ratingsListView" prefHeight="200.0" prefWidth="200.0" />
                </children>
                <BorderPane.margin>
                   <Insets right="10.0" />
@@ -78,7 +78,7 @@
             </VBox>
          </right>
          <center>
-            <ImageView fitHeight="270.0" fitWidth="305.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="imageView" fitHeight="270.0" fitWidth="305.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>
