@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.georgiancollege</groupId>
-    <artifactId>Week10</artifactId>
+    <artifactId>Week11</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Week10</name>
+    <name>Week11</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,7 +67,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.georgiancollege.week10/com.georgiancollege.week10.Main
+                            <mainClass>com.georgiancollege.week10/com.georgiancollege.week11.Main
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
