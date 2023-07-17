@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.georgiancollege.week11.Controllers.MovieDetailsController">
+<AnchorPane prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.georgiancollege.week11.Controllers.MovieDetailsController">
    <children>
       <BorderPane layoutX="140.0" layoutY="59.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -50,7 +49,7 @@
                   <Label text="Director" GridPane.rowIndex="4" />
                   <Label fx:id="directorLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label text="Writer" GridPane.rowIndex="5" />
-                  <Label fx:id="writerLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label fx:id="writerLabel" prefHeight="18.0" prefWidth="133.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
                <BorderPane.margin>
                   <Insets left="10.0" />
